@@ -124,6 +124,7 @@ void InitializeUploadWorkers()
 
 Console.WriteLine("Starting directory crawl");
 await CrawlDirectory(args[0]);
+filesChannel.Writer.Complete();
 
 Console.WriteLine($"Crawl done, found {filesChannel.Reader.Count} files");
 InitializeUploadWorkers();
