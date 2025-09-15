@@ -1,0 +1,80 @@
+# ==============================
+# C# / .NET
+# ==============================
+
+# Build results
+bin/
+obj/
+[Rr]elease/
+[Dd]ebug/
+
+# Rider / Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Logs
+*.log
+
+# Visual Studio Code
+.vscode/
+
+# Resharper
+*.ReSharper.*
+_ReSharper*/
+*.DotSettings.user
+
+# DotCover
+*.dotCover
+
+# Coverage results
+*.coverage
+*.coveragexml
+TestResults/
+*.trx
+
+# Publish folder
+publish/
+
+# ==============================
+# macOS
+# ==============================
+
+# Finder files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon files
+Icon?
+._*
+
+# Thumbnails
+._.DS_Store
+
+# Trash folder
+.Trashes
+
+# Spotlight
+.Spotlight-V100
+
+# Temporary files
+.TemporaryItems
+.apdisk
+
+# ==============================
+# Optional: Ignore user-specific IDE files
+# ==============================
+*.sublime-workspace
+*.sublime-project
+.idea/
+
+output/
