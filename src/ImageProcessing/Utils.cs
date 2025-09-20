@@ -41,20 +41,33 @@ public static class Utils
     }
 
     /// <summary>
-    /// Uses MD5 to hash the image bytes.  Useful for deduplication and id.
+    /// Uses MD5 to hash the image bytes and returns a hex string representation.
+    /// Useful for deduplication and id.
     /// </summary>
     /// <param name="fs"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
     public static string GetImageHash(FileStream fs)
     {
-        var hashedResult = "";
+
         using (var md5 = MD5.Create())
         {
-            hashedResult = md5.ComputeHash(fs).ToString() ?? throw new Exception("Could not hash image");
+            var hashedResult = md5.ComputeHash(fs) ?? throw new Exception("Could not hash image");
+            fs.Position = 0; //rewind the stream for future use
+            return BitConverter.ToString(hashedResult).Replace("-", "").ToLowerInvariant();
         }
 
-        fs.Position = 0; //rewind the stream for future use
-        return UrlEncoder.Create().Encode(hashedResult);
+
+    }
+
+    /// <summary>
+    /// Returns "jpeg" if file is "myprofile.jpeg"
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    public static string GetFileExtension(string path)
+    {
+        return path.Split(".").Last().ToLower().Trim() ?? throw new Exception("No file path found " + path);
     }
 }

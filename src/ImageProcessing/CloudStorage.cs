@@ -6,10 +6,9 @@ namespace ImageProcessing;
 
 public static class CloudStorage
 {
-    public static async Task UploadImage(DataLakeFileSystemClient fileSystemClient, string fileName, FileStream fs, Dictionary<string, string>? metadata)
+    public static async Task UploadImage(DataLakeFileClient fileClient, string fileName, FileStream fs, Dictionary<string, string>? metadata)
     {
         // create the new file or skip if it already exists
-        var fileClient = fileSystemClient.GetFileClient(fileName);
         if (Environment.GetEnvironmentVariable("OVERWRITE_ON") != "true")
         {
             if (await fileClient.ExistsAsync())
@@ -26,6 +25,8 @@ public static class CloudStorage
         {
             await fileClient.SetMetadataAsync(metadata);
         }
+
+        fs.Position = 0; //rewind for future use
     }
 
 }
