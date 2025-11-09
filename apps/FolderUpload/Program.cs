@@ -1,12 +1,7 @@
-﻿using System.IO.Hashing;
-using System.Security.Cryptography;
-using System.Threading.Channels;
+﻿using System.Threading.Channels;
 using Azure.Identity;
 using Azure.Storage.Files.DataLake;
 using ImageProcessing;
-using MetadataExtractor;
-using MetadataExtractor.Formats.Exif;
-using TagLib.Image;
 
 string photoLibraryUrl = Environment.GetEnvironmentVariable("PHOTO_LIB_URL") ?? throw new Exception("PHOTO_LIB_URL env variable not set");
 string container = Environment.GetEnvironmentVariable("PHOTO_LIB_CONTAINER") ?? throw new Exception("PHOTO_LIB_CONTAINER env variable not set");

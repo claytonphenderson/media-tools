@@ -1,5 +1,4 @@
 using System.Security.Cryptography;
-using System.Text.Encodings.Web;
 using MetadataExtractor;
 using MetadataExtractor.Formats.Exif;
 using TagLib.Image;
